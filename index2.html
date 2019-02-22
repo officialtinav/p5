@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <script src="p5.js"></script>
+  </head>
+  <body>
+    <button onclick="faster()">faster</button>
+     <button onclick="slower()">slower</button>
+    <script>
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    
+    var posX = w/2;
+    var posY = h/2;
+    var posX1 = w/2;
+    var posY1 = h/2;
+    var low = -10;
+    var high = 10;
+  
+    var r;
+    var g;
+    var b;
+    
+    function faster() {
+      high += 10;
+      low += -10;
+    }
+    
+      function slower() {
+      low += 10;
+      high += -10;
+    }
+    
+    
+      function setup() {
+        createCanvas(w,h);
+      }
+     /* window.onclick = function(draw) */
+      function draw() {
+        r = random(200,256);
+        g = random(200,256);
+        b = random(200,256);
+        fill(color(r,g,b));
+        var c = random(100);
+        
+      //generates a random number between -20 and 19
+      strokeWeight(0.2);
+      //low = -100 and high = 100
+      var randX = random(low, high);
+      var randY = random(low, high);
+      var randX1 = random(low, high);
+      var randY1 = random(low, high);
+      posX += randX;
+      posY += randY;
+      posX1 += randX1;
+      posY1 += randY1;
+      ellipse(posX, posY, 10, 10);
+      strokeWeight(0.2);
+      ellipse(posX1, posY1, 25, 25);
+      //if the current position is less than the left side of the screen OR the current position is greater than the right side of the screen, go back to the center
+      if ((posX1 < 10) || (posX1 > w-10) || (posY1 < 10) || (posY1 > h-10)) {
+        posX1 = w/2;
+        posY1 = h/2;
+      }
+      }
+      
+      
+    </script>
+  </body>
+</html>

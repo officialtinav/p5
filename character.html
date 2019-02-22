@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script src="p5.js"></script>
+  </head>
+  <body>
+    <script>
+      var w = window.innerWidth;
+      var h = window.innerHeight;
+      //set position and equal to width and height -- half
+      var posX = w/2;
+      var posY = h/2;
+      //first step is to create a canvas
+      function setup() {
+        createCanvas(w,h);
+      }
+      function draw() {
+        //white background to hide the trail
+        background(255);
+        //change size
+        rect(posX,posY,200,100);
+        fill(color('#a7d694'));
+        strokeWeight(0);
+        //w -- use keycode.info -- up
+        if ((keyIsDown(87)) && (posY > 0)) {
+          posY -=10;
+        }
+        //a -- left
+         if ((keyIsDown(65)) && (posX > 50)) {
+          posX -=10;
+        }
+        //d -- right
+         if ((keyIsDown(68)) && (posX<w-100)) {
+          posX +=10;
+        }
+        //s -- down
+         if ((keyIsDown(83)) && (posY<h-100)) {
+          posY +=10;
+        }
+      }
+       
+    </script>
+  </body>
+</html>

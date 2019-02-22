@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script src="p5.js"></script>
+  </head>
+  <body>
+    <script>
+    
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var r;
+    var g;
+    var b;
+    
+     var posX = w/2;
+     var posY = h/2;
+      function setup() {
+        createCanvas(w,h);
+      }
+     /* window.onclick = function(draw) */
+      function draw() {
+        /* make circles pastel, delete 200 to omit pastel color */
+        r = random(200,256);
+        g = random(200,256);
+        b = random(200,256);
+        strokeWeight(0);
+        fill(color(r,g,b))
+        var randX = random(-10,10);
+        var randY = random(-10,10);
+        posX += randX;
+        posY += randY;
+        ellipse(posX,posY,50,50);
+      }
+      
+    </script>
+  </body>
+</html>
