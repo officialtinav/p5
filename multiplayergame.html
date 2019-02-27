@@ -4,31 +4,37 @@
   </head>
   <body>
     <script>
-   
+   //window
       var w = window.innerWidth;
       var h = window.innerHeight;
     
     
       //i am creating a new object globally
       var ball = new ball();
+      //ball 2 is opponent
       var ball2 = new ball2();
+      //distance variable
       var d;
       
-      
+      //canvas
       function setup() {
         createCanvas(w,h);
       }
       
       function draw() {
+        //white background to cover ball's trail
         background(255);
+        //this is the red ball
         ball.show();
         ball.move();
         
+        //this is the blue ball -- opponent
         ball2.show();
         ball2.move();
         ball2.kill();
       }
       function ball() {
+        //position
         this.x = 100;
         this.y = 100;
         this.show = function() {
@@ -58,8 +64,9 @@
      //second ball -- key I J K L
       
       function ball2() {
-        this.x = 200;
-        this.y = 200;
+        //further position that first ball
+        this.x = 500;
+        this.y = 500;
         this.show = function() {
           //color of the circle
           fill(color('blue'));
@@ -85,9 +92,11 @@
         
         }
         this.kill = function() {
+          //distance variable
           d = dist(this.x,this.y,ball.x,ball.y);
           if (d < 50) {
             noLoop();
+            //this pops up when ball2 touches ball
             window.alert("you lose, loser!!!");
           }
         }
