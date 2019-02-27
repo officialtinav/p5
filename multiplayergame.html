@@ -12,6 +12,7 @@
       //i am creating a new object globally
       var ball = new ball();
       var ball2 = new ball2();
+      var d;
       
       
       function setup() {
@@ -25,6 +26,7 @@
         
         ball2.show();
         ball2.move();
+        ball2.kill();
       }
       function ball() {
         this.x = 100;
@@ -81,6 +83,13 @@
             this.y += 10;
           }
         
+        }
+        this.kill = function() {
+          d = dist(this.x,this.y,ball.x,ball.y);
+          if (d < 50) {
+            noLoop();
+            window.alert("you lose, loser!!!");
+          }
         }
       }
      
