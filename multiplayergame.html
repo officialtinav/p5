@@ -1,13 +1,18 @@
 <html>
   <head>
+    <link rel="stylesheet" href="multiplayergame.css">
     <script src="p5.js"></script>
   </head>
-  <body>
+  
+  <body background="https://st.depositphotos.com/2944235/4002/i/950/depositphotos_40020421-stock-photo-ice-rink-background.jpg">
+    
+     <p id="address">freeze tag on ice</p>
+     <p id="desc">goal: for the red circle to capture the blue circle</p>
     <script>
    //window
+   
       var w = window.innerWidth;
       var h = window.innerHeight;
-    
     
       //i am creating a new object globally
       var ball = new ball();
@@ -23,7 +28,10 @@
       
       function draw() {
         //white background to cover ball's trail
-        background(255);
+        //change background to a pic
+         background("#white");
+       
+      
         //this is the red ball
         ball.show();
         ball.move();
@@ -39,7 +47,7 @@
         this.y = 100;
         this.show = function() {
           //color of the circle
-          fill(color('red'));
+          fill(color('#f46b42'));
           //shape of the circle
           ellipse(this.x,this.y,100,100);
         };
@@ -69,14 +77,14 @@
         this.y = 500;
         this.show = function() {
           //color of the circle
-          fill(color('blue'));
+          fill(color('#b2dbf4'));
           //shape of the circle
           ellipse(this.x,this.y,100,100);
         };
         
         this.move = function() {
           //x becauuse left and right is on the x axis
-          if(keyIsDown(76)) { //right arrow
+          if(keyIsDown(76))  { //right arrow
             this.x += 10;
           }
           if (keyIsDown(74)) { //left arrow
@@ -89,7 +97,6 @@
           if (keyIsDown(75)) { //down arrow
             this.y += 10;
           }
-        
         }
         this.kill = function() {
           //distance variable
@@ -97,12 +104,11 @@
           if (d < 50) {
             noLoop();
             //this pops up when ball2 touches ball
-            window.alert("you lose, loser!!!");
+            window.alert("YOU LOSE");
           }
         }
       }
      
-    
     </script>
    
   </body>
