@@ -7,7 +7,8 @@
   <body background="https://st.depositphotos.com/2944235/4002/i/950/depositphotos_40020421-stock-photo-ice-rink-background.jpg">
     
      <p id="address">freeze tag on ice</p>
-     <p id="desc">goal: for the red circle to capture the blue circle</p>
+     <p id="desc">goal: use your skating skills to capture the blue circle</p>
+     <p id="key">opponent-left side victim-right side</p>
     <script>
    //window
    
@@ -22,14 +23,19 @@
       var d;
       
       //canvas
+      //GOAL: replace image wirh white background
       function setup() {
         createCanvas(w,h);
+        //FIX THIS
+        loadImage('assets/ice.jpg', img => {
+    image(img, 0, 0);
+        });
       }
       
       function draw() {
         //white background to cover ball's trail
         //change background to a pic
-         background("#white");
+        background("#white");
        
       
         //this is the red ball
@@ -44,7 +50,7 @@
       function ball() {
         //position
         this.x = 100;
-        this.y = 100;
+        this.y = 150;
         this.show = function() {
           //color of the circle
           fill(color('#f46b42'));
