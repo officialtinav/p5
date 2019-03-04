@@ -12,3 +12,6 @@ freeze.html - in progress/broken
 
 accomplished:
 - refresh button added
+
+freeze.html - EXPERIMENT
+- trying to replace the circle with picture of boy skating (in progress)
