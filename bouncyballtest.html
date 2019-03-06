@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="multiplayergame.css">
+    <script src="p5.js"></script>
+  </head>
+  
+  <body background="https://st.depositphotos.com/2944235/4002/i/950/depositphotos_40020421-stock-photo-ice-rink-background.jpg">
+     
+    <a href="file:///media/removable/TINA'S%20USB/info%20tech/p5/multiplayergame.html" class="button">start all over</a>
+    
+     <p id="address">freeze tag on ice</p>
+     <p id="desc">goal: use your skating skills to capture the blue circle</p>
+     <p id="key">opponent-left side victim-right side</p>
+     <script>
+     //big bouncy ball
+       let rad = 60; // Width of the shape
+       let xpos, ypos; // Starting position of shape
+
+       let xspeed = 2.8; // Speed of the shape
+       let yspeed = 2.2; // Speed of the shape
+
+       let xdirection = 1; // Left or Right
+       let ydirection = 1; // Top to Bottom
+       
+       // start of smaller ball
+      var w = window.innerWidth;
+      var h = window.innerHeight;
+    
+      //i am creating a new object globally
+      var ball = new ball();
+      //ball 2 is opponent
+      var ball2 = new ball2();
+      //distance variable
+      var d;
+
+function setup() {
+  createCanvas(720, 400);
+  noStroke();
+  frameRate(30);
+  ellipseMode(RADIUS);
+  // Set the starting position of the shape
+  xpos = width / 2;
+  ypos = height / 2;
+}
+
+function draw() {
+  background(102);
+  //this is the red ball
+        ball.show();
+        ball.move();
+        
+        //this is the blue ball -- opponent
+        ball2.show();
+        ball2.move();
+        ball2.kill();
+        
+         function ball() {
+        //position
+        this.x = 100;
+        this.y = 150;
+        this.show = function() {
+          //color of the circle
+          fill(color('#f46b42'));
+          //shape of the circle
+          ellipse(this.x,this.y,100,100);
+        };
+        
+        this.move = function() {
+          //x becauuse left and right is on the x axis
+          if(keyIsDown(68)) { //right arrow
+            this.x += 10;
+          }
+          if (keyIsDown(65)) { //left arrow
+            this.x -= 10;
+          }
+          //y because up and down is on the y axis
+          if (keyIsDown(87)) { //up arrow
+            this.y -= 10;
+          }
+          if (keyIsDown(83)) { //down arrow
+            this.y += 10;
+          }
+        }
+        }
+     //second ball -- key I J K L
+      
+      function ball2() {
+        //further position that first ball
+        this.x = 500;
+        this.y = 500;
+        this.show = function() {
+          //color of the circle
+          fill(color('#b2dbf4'));
+          //shape of the circle
+          ellipse(this.x,this.y,100,100);
+        };
+        
+        this.move = function() {
+          //x becauuse left and right is on the x axis
+          if(keyIsDown(76))  { //right arrow
+            this.x += 10;
+          }
+          if (keyIsDown(74)) { //left arrow
+            this.x -= 10;
+          }
+          //y because up and down is on the y axis
+          if (keyIsDown(73)) { //up arrow
+            this.y -= 10;
+          }
+          if (keyIsDown(75)) { //down arrow
+            this.y += 10;
+          }
+        }
+        this.kill = function() {
+          //distance variable
+          d = dist(this.x,this.y,ball.x,ball.y);
+          if (d < 50) {
+            noLoop();
+            //this pops up when ball2 touches ball
+            window.alert("YOU LOSE");
+          }
+        }
+      }
+     
+  // Update the position of the shape
+  xpos = xpos + xspeed * xdirection;
+  ypos = ypos + yspeed * ydirection;
+
+  // Test to see if the shape exceeds the boundaries of the screen
+  // If it does, reverse its direction by multiplying by -1
+  if (xpos > width - rad || xpos < rad) {
+    xdirection *= -1;
+  }
+  if (ypos > height - rad || ypos < rad) {
+    ydirection *= -1;
+  }
+
+  // Draw the shape
+  ellipse(xpos, ypos, rad, rad);
+}
+     </script>
