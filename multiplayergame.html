@@ -5,12 +5,23 @@
   </head>
   
   <body background="https://st.depositphotos.com/2944235/4002/i/950/depositphotos_40020421-stock-photo-ice-rink-background.jpg">
+     
+    <a href="file:///media/removable/TINA'S%20USB/info%20tech/p5/multiplayergame.html" class="button">start all over</a>
     
      <p id="address">freeze tag on ice</p>
      <p id="desc">goal: use your skating skills to capture the blue circle</p>
      <p id="key">opponent-left side victim-right side</p>
     <script>
-   //window
+   //bouncy ball
+   
+let rad = 60; // Width of the shape
+let xpos, ypos; // Starting position of shape
+
+let xspeed = 2.8; // Speed of the shape
+let yspeed = 2.2; // Speed of the shape
+
+let xdirection = 1; // Left or Right
+let ydirection = 1; // Top to Bottom
    
       var w = window.innerWidth;
       var h = window.innerHeight;
@@ -25,17 +36,25 @@
       //canvas
       //GOAL: replace image wirh white background
       function setup() {
-        createCanvas(w,h);
-        //FIX THIS
-        loadImage('assets/ice.jpg', img => {
-    image(img, 0, 0);
+          createCanvas(w,h);
+          //FIX THIS
+          loadImage('assets/ice.jpg', img => {
+          image(img, 0, 0);
         });
+        //bouncy ball
+           noStroke();
+           frameRate(30);
+           ellipseMode(RADIUS);
+           // Set the starting position of the shape
+           xpos = width / 2;
+           ypos = height / 2;
       }
       
       function draw() {
         //white background to cover ball's trail
         //change background to a pic
-        background("#white");
+        
+        background("#d2d4d8");
        
       
         //this is the red ball
