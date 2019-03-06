@@ -1,5 +1,9 @@
 # p5
 
+**new idea**
+- make bouncy jump all over the place
+- bad guy must avoid the bouncy ball while chasing the good guy
+
 **multiplayergame.html - reference**
 
 not accomplished:
