@@ -1,8 +1,8 @@
 # p5
 
-**new idea**
+**new idea - bouncyballtest.html**
 - make bouncy jump all over the place
-- bad guy must avoid the bouncy ball while chasing the good guy
+- object must avoid the bouncy ball while crossing to the other side of the screen
 
 **multiplayergame.html - reference**
 
