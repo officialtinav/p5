@@ -3,6 +3,7 @@
 **new idea - bouncyballtest.html**
 - make bouncy jump all over the place
 - object must avoid the bouncy ball while crossing to the other side of the screen
+- goal: attach .kill with bouncy ball
 
 **multiplayergame.html - reference**
 
