@@ -42,7 +42,7 @@
       this.update = function() {
         this.velocity += this.gravity; //gravity applied when not jumping
         this.y += this.velocity;
-        this.velocity += 0.8; //air resistance
+        this.velocity *= 0.8; //air resistance
         if (this.y > h) { //jumper hits the floor
           this.y = h;
           this.velocity = 0;
